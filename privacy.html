@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Neptune Privacy Policy</title>
+<meta name="description" content="Privacy policy for the Neptune fishing log app: what we collect, why, and how to delete your data." />
+<style>
+:root {
+  --color-bg: #081012;
+  --color-surface: #0e1e22;
+  --color-surface-raised: #11262b;
+  --color-border: #1c3a40;
+  --color-text: #eaf6f6;
+  --color-text-dim: #9ab3b6;
+  --color-accent: #4fe0f0;
+  --color-accent-dim: #1c4e57;
+
+  --text-base: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --text-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-hero: clamp(2.25rem, 1.8rem + 2vw, 3.25rem);
+
+  --space-section: clamp(3rem, 2.4rem + 3vw, 6rem);
+  --radius: 16px;
+}
+
+/* Neptune's product identity is dark navy + cyan end to end (app UI, icon,
+   marketing); these pages intentionally mirror that rather than switching
+   to a generic light theme regardless of system preference. */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse 60% 40% at 15% -10%, rgba(79, 224, 240, 0.10), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 100% 0%, rgba(79, 224, 240, 0.06), transparent 60%);
+  background-repeat: no-repeat;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-section) 1.5rem 4rem;
+}
+
+header.hero {
+  margin-bottom: var(--space-section);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 1.125rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.wordmark .dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 12px 2px rgba(79, 224, 240, 0.6);
+}
+
+h1 {
+  font-size: var(--text-hero);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 1.75rem 0 0.75rem;
+}
+
+.lede {
+  color: var(--color-text-dim);
+  font-size: var(--text-lg);
+  max-width: 46ch;
+  margin: 0;
+}
+
+.updated-note {
+  color: var(--color-text-dim);
+  font-size: 0.875rem;
+  margin: 0.5rem 0 0;
+}
+
+section {
+  margin-top: var(--space-section);
+}
+
+.section-label {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin: 0 0 1.25rem;
+}
+
+.policy-section p, .policy-section li {
+  color: var(--color-text-dim);
+}
+
+.policy-section ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.policy-section li {
+  margin-bottom: 0.4rem;
+}
+
+.policy-section li strong {
+  color: var(--color-text);
+}
+
+.contact-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  background: linear-gradient(180deg, var(--color-surface-raised), var(--color-surface));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.contact-card p {
+  margin: 0.35rem 0 0;
+  color: var(--color-text-dim);
+}
+
+.contact-card strong {
+  display: block;
+  font-size: var(--text-lg);
+  color: var(--color-text);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #04181b;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn:hover, .btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px -8px rgba(79, 224, 240, 0.55);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+code {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.875em;
+  color: var(--color-text);
+}
+
+footer {
+  margin-top: var(--space-section);
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-dim);
+  font-size: 0.875rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+}
+
+footer a {
+  color: var(--color-text-dim);
+}
+
+footer a:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn { width: 100%; }
+}
+</style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <a class="wordmark" href="/"><span class="dot" aria-hidden="true"></span>NEPTUNE</a>
+    <h1>Privacy Policy</h1>
+    <p class="lede">What Neptune collects, why, and how to delete it. No ads, no tracking, no selling your data &mdash; ever.</p>
+    <p class="updated-note">Last updated: July 2026</p>
+  </header>
+
+  <section aria-labelledby="overview-heading">
+    <h2 id="overview-heading" class="section-label">Overview</h2>
+    <div class="policy-section">
+      <p>Neptune is a personal fishing log made by an independent developer. This policy covers the Neptune iOS app and describes exactly what data it collects, why, and what you can do about it. If anything here is unclear, email <a href="mailto:support@neptunefishingapp.com">support@neptunefishingapp.com</a> and we'll answer directly.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="collect-heading">
+    <h2 id="collect-heading" class="section-label">What We Collect</h2>
+    <div class="policy-section">
+      <ul>
+        <li><strong>Account info</strong> &mdash; your email address, and your name if you sign in with Apple or Google. Used only to authenticate you and identify your own data.</li>
+        <li><strong>Your catches and trips</strong> &mdash; species, size, weight, lures, notes, dates, and locations you log. This is the core of the app: it's what powers your personal pattern insights.</li>
+        <li><strong>Precise location</strong> &mdash; used transiently, only when you ask Neptune to use your current location to fetch fishing conditions. It is not stored or attached to your account; it's used for a single lookup and discarded.</li>
+        <li><strong>A user ID</strong> &mdash; an internal identifier that ties your catches and trips to your account in our database. It isn't used for advertising or shared with anyone outside the services below.</li>
+      </ul>
+      <p>We do not collect analytics, advertising identifiers, or any data for the purpose of tracking you across apps or websites.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="third-party-heading">
+    <h2 id="third-party-heading" class="section-label">Third-Party Services We Use</h2>
+    <div class="policy-section">
+      <p>Neptune relies on a small number of infrastructure providers to function. None of them see more than what's necessary to do their specific job:</p>
+      <ul>
+        <li><strong>Supabase</strong> &mdash; hosts your account and all your catch/trip data. Access is restricted to your own account at the database level.</li>
+        <li><strong>Sign in with Apple / Google Sign-In</strong> &mdash; used only for authentication. We receive your email and name; we never receive your password.</li>
+        <li><strong>Open-Meteo</strong> &mdash; provides weather, barometric pressure, moon phase, and UV data for a given date and location. Receives coordinates and a date, not your identity.</li>
+        <li><strong>USGS Water Services</strong> &mdash; provides live water temperature readings for a given water body. Receives a location, not your identity.</li>
+        <li><strong>OpenStreetMap (Nominatim)</strong> &mdash; converts a water body name into map coordinates. Receives a water body name and state, not your identity.</li>
+      </ul>
+      <p>None of these services are used for advertising, and we don't sell or share your data with data brokers, advertisers, or any other third party not listed here.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="retention-heading">
+    <h2 id="retention-heading" class="section-label">Data Retention &amp; Deletion</h2>
+    <div class="policy-section">
+      <p>Your data stays in your account for as long as you use Neptune. You're always in control:</p>
+      <ul>
+        <li>Delete an individual catch or trip anytime from within the app.</li>
+        <li>Delete your entire account and all associated data permanently from <code>Settings &rarr; Delete Account</code>. This cannot be undone.</li>
+        <li>If you can't access the app, email <a href="mailto:support@neptunefishingapp.com">support@neptunefishingapp.com</a> and we'll delete your account and data on request.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="security-heading">
+    <h2 id="security-heading" class="section-label">Security</h2>
+    <div class="policy-section">
+      <p>Your data is protected by row-level security at the database level, meaning your account can only ever read or write its own catches and trips &mdash; not anyone else's. Data is transmitted over encrypted (HTTPS/TLS) connections.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="children-heading">
+    <h2 id="children-heading" class="section-label">Children's Privacy</h2>
+    <div class="policy-section">
+      <p>Neptune is not directed at children under 13, and we do not knowingly collect data from children under 13. If you believe a child has created an account, email us and we'll delete it.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="changes-heading">
+    <h2 id="changes-heading" class="section-label">Changes to This Policy</h2>
+    <div class="policy-section">
+      <p>We may update this policy as Neptune adds features or changes providers. Changes are posted here with an updated date at the top of the page &mdash; there's no separate mailing list, so check back if you want the latest version.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="contact-heading">
+    <h2 id="contact-heading" class="section-label">Contact</h2>
+    <div class="contact-card">
+      <div>
+        <strong>support@neptunefishingapp.com</strong>
+        <p>Questions about this policy or your data, answered directly.</p>
+      </div>
+      <a class="btn" href="mailto:support@neptunefishingapp.com?subject=Privacy%20Question">Email Us</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Neptune</span>
+    <span>
+      <a href="index.html">Support</a>
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:support@neptunefishingapp.com">support@neptunefishingapp.com</a>
+    </span>
+  </footer>
+</main>
+</body>
+</html>

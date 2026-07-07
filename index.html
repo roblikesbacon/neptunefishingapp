@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Neptune Support</title>
+<meta name="description" content="Support and frequently asked questions for the Neptune fishing log app." />
+<style>
+:root {
+  --color-bg: #081012;
+  --color-surface: #0e1e22;
+  --color-surface-raised: #11262b;
+  --color-border: #1c3a40;
+  --color-text: #eaf6f6;
+  --color-text-dim: #9ab3b6;
+  --color-accent: #4fe0f0;
+  --color-accent-dim: #1c4e57;
+
+  --text-base: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --text-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-hero: clamp(2.25rem, 1.8rem + 2vw, 3.25rem);
+
+  --space-section: clamp(3rem, 2.4rem + 3vw, 6rem);
+  --radius: 16px;
+}
+
+/* Neptune's product identity is dark navy + cyan end to end (app UI, icon,
+   marketing); these pages intentionally mirror that rather than switching
+   to a generic light theme regardless of system preference. */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse 60% 40% at 15% -10%, rgba(79, 224, 240, 0.10), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 100% 0%, rgba(79, 224, 240, 0.06), transparent 60%);
+  background-repeat: no-repeat;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-section) 1.5rem 4rem;
+}
+
+header.hero {
+  margin-bottom: var(--space-section);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 1.125rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.wordmark .dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 12px 2px rgba(79, 224, 240, 0.6);
+}
+
+h1 {
+  font-size: var(--text-hero);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 1.75rem 0 0.75rem;
+}
+
+.lede {
+  color: var(--color-text-dim);
+  font-size: var(--text-lg);
+  max-width: 46ch;
+  margin: 0;
+}
+
+section {
+  margin-top: var(--space-section);
+}
+
+.section-label {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin: 0 0 1.25rem;
+}
+
+.contact-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  background: linear-gradient(180deg, var(--color-surface-raised), var(--color-surface));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.contact-card p {
+  margin: 0.35rem 0 0;
+  color: var(--color-text-dim);
+}
+
+.contact-card strong {
+  display: block;
+  font-size: var(--text-lg);
+  color: var(--color-text);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #04181b;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn:hover, .btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px -8px rgba(79, 224, 240, 0.55);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.response-note {
+  color: var(--color-text-dim);
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+details {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  padding: 0;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.1rem 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary::after {
+  content: "+";
+  flex-shrink: 0;
+  color: var(--color-accent);
+  font-size: 1.25rem;
+  font-weight: 400;
+  transition: transform 200ms ease;
+}
+
+details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+details .answer {
+  padding: 0 1.25rem 1.25rem;
+  color: var(--color-text-dim);
+  margin: 0;
+}
+
+details .answer code {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.875em;
+  color: var(--color-text);
+}
+
+footer {
+  margin-top: var(--space-section);
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-dim);
+  font-size: 0.875rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+}
+
+footer a {
+  color: var(--color-text-dim);
+}
+
+footer a:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn { width: 100%; }
+}
+</style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <a class="wordmark" href="/"><span class="dot" aria-hidden="true"></span>NEPTUNE</a>
+    <h1>Support</h1>
+    <p class="lede">Answers to common questions, and a real human to email if you're still stuck.</p>
+  </header>
+
+  <section aria-labelledby="contact-heading">
+    <h2 id="contact-heading" class="section-label">Contact</h2>
+    <div class="contact-card">
+      <div>
+        <strong>support@neptunefishingapp.com</strong>
+        <p>Bugs, account issues, feature requests &mdash; all welcome.</p>
+      </div>
+      <a class="btn" href="mailto:support@neptunefishingapp.com?subject=Neptune%20Support">Email Support</a>
+    </div>
+    <p class="response-note">We reply within 1&ndash;2 business days.</p>
+  </section>
+
+  <section aria-labelledby="faq-heading">
+    <h2 id="faq-heading" class="section-label">Frequently Asked Questions</h2>
+
+    <details>
+      <summary>How do I delete my account and my data?</summary>
+      <p class="answer">Open Neptune, go to <code>Settings &rarr; Delete Account</code>, and confirm. This permanently deletes your account and every catch and trip you've logged &mdash; it can't be undone. If you're having trouble accessing the app to do this yourself, email us and we'll take care of it.</p>
+    </details>
+
+    <details>
+      <summary>I logged a catch but it's not showing up on my other device</summary>
+      <p class="answer">Neptune logs everything offline-first, then syncs automatically once you have a signal. If something looks stuck, open <code>Settings &rarr; Sync Status</code> and tap <code>Retry All</code>. If it's still stuck after that, email us with your account email and roughly when the catch was logged.</p>
+    </details>
+
+    <details>
+      <summary>What states does Neptune cover?</summary>
+      <p class="answer">Neptune currently supports New York, New Jersey, and Pennsylvania, with stocking data and real-time conditions for tri-state waters. More states are on the way.</p>
+    </details>
+
+    <details>
+      <summary>How do I switch between Imperial and Metric units?</summary>
+      <p class="answer"><code>Settings &rarr; Units</code>. The change applies immediately across the whole app, including past entries.</p>
+    </details>
+
+    <details>
+      <summary>Is my data private?</summary>
+      <p class="answer">Yes. Neptune has no ads, no social feed, and doesn't sell your data. Your catch history is yours &mdash; it's used only to power your own personal bite-pattern insights. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+    </details>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Neptune</span>
+    <span>
+      <a href="privacy.html">Privacy Policy</a>
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:support@neptunefishingapp.com">support@neptunefishingapp.com</a>
+    </span>
+  </footer>
+</main>
+</body>
+</html>
