@@ -216,7 +216,7 @@ footer a:hover {
     <a class="wordmark" href="/"><span class="dot" aria-hidden="true"></span>NEPTUNE</a>
     <h1>Privacy Policy</h1>
     <p class="lede">What Neptune collects, why, and how to delete it. No ads, no tracking, no selling your data &mdash; ever.</p>
-    <p class="updated-note">Last updated: July 2026</p>
+    <p class="updated-note">Last updated: July 19, 2026</p>
   </header>
 
   <section aria-labelledby="overview-heading">
@@ -231,11 +231,13 @@ footer a:hover {
     <div class="policy-section">
       <ul>
         <li><strong>Account info</strong> &mdash; your email address, and your name if you sign in with Apple or Google. Used only to authenticate you and identify your own data.</li>
-        <li><strong>Your catches and trips</strong> &mdash; species, size, weight, lures, notes, dates, and locations you log. This is the core of the app: it's what powers your personal pattern insights.</li>
+        <li><strong>Your catches and trips</strong> &mdash; species, size, weight, lures, notes, dates, and locations you log, plus a season (Winter/Spring/Summer/Fall) automatically derived from the date &mdash; not something you enter, and not personally identifying. This is the core of the app: it's what powers your personal pattern insights.</li>
+        <li><strong>Water body ratings</strong> &mdash; your own rating for a water body, if you choose to leave one.</li>
         <li><strong>Precise location</strong> &mdash; used transiently, only when you ask Neptune to use your current location to fetch fishing conditions. It is not stored or attached to your account; it's used for a single lookup and discarded.</li>
         <li><strong>A user ID</strong> &mdash; an internal identifier that ties your catches and trips to your account in our database. It isn't used for advertising or shared with anyone outside the services below.</li>
       </ul>
       <p>We do not collect analytics, advertising identifiers, or any data for the purpose of tracking you across apps or websites.</p>
+      <p>Neptune's stocking, forage, and species reference tables &mdash; which fish are stocked where and when, forage availability, and species information &mdash; are static reference data tied to a state or water body, not to you personally.</p>
     </div>
   </section>
 
@@ -248,9 +250,30 @@ footer a:hover {
         <li><strong>Sign in with Apple / Google Sign-In</strong> &mdash; used only for authentication. We receive your email and name; we never receive your password.</li>
         <li><strong>Open-Meteo</strong> &mdash; provides weather, barometric pressure, moon phase, and UV data for a given date and location. Receives coordinates and a date, not your identity.</li>
         <li><strong>USGS Water Services</strong> &mdash; provides live water temperature readings for a given water body. Receives a location, not your identity.</li>
+        <li><strong>NOAA CO-OPS</strong> &mdash; provides public tide station data and tide-height predictions for water bodies near a coastal station. Receives a station ID and date range, not your identity.</li>
         <li><strong>OpenStreetMap (Nominatim)</strong> &mdash; converts a water body name into map coordinates. Receives a water body name and state, not your identity.</li>
       </ul>
       <p>None of these services are used for advertising, and we don't sell or share your data with data brokers, advertisers, or any other third party not listed here.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="notifications-heading">
+    <h2 id="notifications-heading" class="section-label">Notifications</h2>
+    <div class="policy-section">
+      <p>Neptune can send you local notifications, scheduled entirely on your own device using Apple's built-in notification framework. There is no push notification service and no server involved in delivering them &mdash; turning them on doesn't send anything to us or to anyone else.</p>
+      <ul>
+        <li><strong>New stocking alerts</strong> &mdash; compares stocking data already cached on your device against a marker of what you've already seen, both stored locally.</li>
+        <li><strong>Prime bite window reminder</strong> &mdash; a daily reminder computed from your own catch history, calculated entirely on your device.</li>
+        <li><strong>Still out fishing?</strong> &mdash; a reminder scheduled locally when you start a live trip, based on how long the trip has been running, and cancelled automatically when you end it.</li>
+      </ul>
+      <p>Each of these can be turned on or off individually, or all at once, from <code>Settings &rarr; Notifications</code>. The catch history and stocking data these notifications read from was already on your device as part of Neptune's normal sync with our database (see above) &mdash; enabling notifications doesn't send that data anywhere new.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="feedback-heading">
+    <h2 id="feedback-heading" class="section-label">Feedback</h2>
+    <div class="policy-section">
+      <p><code>Settings &rarr; Send Feedback</code> opens your own device's Mail app (or a similar system hand-off if Mail isn't set up), pre-addressed to <a href="mailto:support@neptunefishingapp.com">support@neptunefishingapp.com</a> with a draft body that includes your app version, build number, iOS version, and device model &mdash; all visible and editable before you send anything. Neptune doesn't read, log, or transmit this content itself; it simply hands off to your mail app, and nothing is sent unless you tap Send.</p>
     </div>
   </section>
 
