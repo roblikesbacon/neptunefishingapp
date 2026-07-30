@@ -55,7 +55,7 @@
   <div class="wrap hero-grid">
     <div>
       <div class="badge-row">
-        <span class="badge"><span class="dot live" aria-hidden="true"></span>Preview build</span>
+        <span class="badge"><span class="dot live" aria-hidden="true"></span>Public beta</span>
         <span class="badge">Native SwiftUI · iOS 17+</span>
         <span class="badge">Offline-first</span>
       </div>
@@ -77,9 +77,15 @@
         <a class="btn btn-ghost" href="#year-class">See what's different</a>
       </div>
 
+      <!-- Beta status stated once here, and again at the closing CTA where the
+           action lives. The TestFlight href is duplicated in both places —
+           update both together. -->
       <p class="hero-note">
-        A preliminary product preview. Screens are faithful recreations of the
-        app's interface; the figures in them are representative sample data.
+        Neptune is in <strong>open beta on TestFlight</strong> for New York, New
+        Jersey, Pennsylvania and Florida &mdash;
+        <a href="https://testflight.apple.com/join/CFZtX8PJ" target="_blank" rel="noopener">join the beta</a>.
+        Screens below are faithful recreations of the app's interface; the
+        figures in them are representative sample data.
       </p>
 
       <dl class="hero-stats">
@@ -1108,18 +1114,27 @@
 <section class="section">
   <div class="wrap">
     <div class="cta-panel reveal">
-      <p class="eyebrow" style="justify-content:center">Preview</p>
+      <p class="eyebrow" style="justify-content:center">Open beta</p>
       <h2 class="section-title" style="max-width:24ch;margin-inline:auto">No ads. No social feed. No selling your spots.</h2>
       <p class="section-lede" style="margin-inline:auto;text-align:center;max-width:52ch">
         Neptune is a private logbook that happens to be good at statistics. Your
         catch history exists to serve your own insights and nothing else.
       </p>
       <div class="hero-actions" style="justify-content:center;margin-top:2rem">
-        <a class="btn btn-primary" href="mailto:support@neptunefishingapp.com?subject=Neptune%20preview">Get in touch</a>
+        <a class="btn btn-primary" href="https://testflight.apple.com/join/CFZtX8PJ" target="_blank" rel="noopener">
+          <!-- Paper plane, echoing TestFlight's own mark. -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M21.5 2.5 2 10.5l7 3 3 7z"/><path d="M21.5 2.5 9 13.5"/></svg>
+          Join the beta on TestFlight
+        </a>
         <a class="btn btn-ghost" href="/">Support &amp; FAQ</a>
       </div>
-      <p class="hero-note" style="text-align:center">
-        Currently in TestFlight for New York, New Jersey, Pennsylvania and Florida.
+      <!-- Says plainly what "beta" means here, so a tester knows what they're
+           signing up for rather than expecting a finished product. -->
+      <p class="hero-note" style="text-align:center;max-width:48ch;margin-inline:auto">
+        Requires iOS 17 or later and the TestFlight app. Full stocking,
+        regulations and forage data currently covers New York, New Jersey,
+        Pennsylvania and Florida. Expect rough edges &mdash; and tell us about
+        them; there's a Report a Bug button in Settings.
       </p>
     </div>
   </div>
