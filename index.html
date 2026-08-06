@@ -82,8 +82,8 @@
            action lives. The TestFlight href is duplicated in both places —
            update both together. -->
       <p class="hero-note">
-        Neptune is in <strong>open beta on TestFlight</strong> for New York, New
-        Jersey, Pennsylvania and Florida &mdash;
+        Neptune is in <strong>open beta on TestFlight</strong>, covering 15 East
+        Coast states &mdash;
         <a href="https://testflight.apple.com/join/CFZtX8PJ" target="_blank" rel="noopener">join the beta</a>.
         Screens below are faithful recreations of the app's interface; the
         figures in them are representative sample data.
@@ -96,11 +96,11 @@
         </div>
         <div>
           <dt>Species aged</dt>
-          <dd>37</dd>
+          <dd>39</dd>
         </div>
         <div>
           <dt>Insight cards</dt>
-          <dd>21</dd>
+          <dd>13</dd>
         </div>
       </dl>
     </div>
@@ -471,27 +471,31 @@
         <p class="step-num data">03 <span>Learn</span></p>
         <h3 class="step-title">It works out what actually produces <em>your</em> fish.</h3>
         <p class="step-body">
-          Here's the turn. With enough enriched catches, Neptune buckets each of
-          seven condition factors across your own history and measures
-          <strong>lift</strong>: how much more often you caught fish in a given
-          band than random chance would predict.
+          Here's the turn — and the part most fishing apps get quietly wrong.
+          Counting the conditions you <em>caught fish in</em> measures when you
+          went fishing, not when fish were biting. Neptune divides by effort
+          instead: every number is <strong>catches per hour fished</strong>,
+          measured against your own season-adjusted baseline.
         </p>
         <p class="step-body">
-          A 2.4&times; on the 29.9–30.1 inHg pressure band isn't folk wisdom or a
-          solunar table — it's your last 38 fish, counted.
+          So a bin on the pressure curve doesn't say "you caught 38 fish here".
+          It says your catch rate in that band beat your own average, by enough,
+          with an interval that doesn't cross "no effect". Blank hours count
+          against it. That's a much harder claim to make — and a much harder one
+          to fool yourself with.
         </p>
         <ul class="feature-list">
           <li>
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18"/><path d="M7 20V9M12 20V4M17 20v-7"/></svg>
-            <span><strong>Seven factors:</strong> barometric pressure, water temp, air temp, wind speed, cloud cover, precipitation, and moon illumination.</span>
+            <span><strong>Eight factors:</strong> barometric pressure <em>and its trend</em>, water temp, air temp, wind speed, cloud cover, precipitation, and moon illumination — each drawn as a response curve across its full range, with the current reading marked on it.</span>
           </li>
           <li>
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            <span><strong>It refuses to guess.</strong> A factor with fewer than 5 observations, or too few distinct bands to compare, is dropped outright — no lift claim is made from thin data.</span>
+            <span><strong>It corrects for having looked everywhere.</strong> Search enough variables and something always looks significant. Neptune applies a family-wise correction across every test a card runs, holding the chance of showing you <em>any</em> false finding to 10% — and caps itself at three findings, ranked by the corrected bound rather than the flashiest number.</span>
           </li>
           <li>
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
-            <span><strong>Slice it three ways:</strong> by catch count, by average size, or by trophy rate — the conditions that produce <em>numbers</em> often aren't the ones that produce <em>size</em>.</span>
+            <span><strong>An empty card is a real answer.</strong> A finding has to clear an interval that excludes "no effect" <em>and</em> a minimum effect size before it's shown at all. Until then the card says so, rather than promoting the strongest noise it could find.</span>
           </li>
         </ul>
       </div>
@@ -501,45 +505,55 @@
           <div class="phone-screen">
             <div class="status-bar"><span>21:30</span><span class="glyphs" aria-hidden="true"><i class="bar" style="height:5px"></i><i class="bar" style="height:7px"></i><i class="bar" style="height:9px"></i><i class="bar" style="height:11px"></i></span></div>
             <div class="screen-body">
-              <p class="app-eyebrow" style="margin:0">Insights</p>
-              <h2 class="screen-title">What's working</h2>
+              <p class="app-eyebrow" style="margin:0">Conditions window</p>
+              <h2 class="screen-title">Barometric pressure</h2>
               <div class="seg" role="tablist" aria-hidden="true">
-                <span aria-selected="true">Catches</span><span>Avg size</span><span>Trophy</span>
+                <span aria-selected="true">All species</span><span>Spring</span>
               </div>
 
+              <!-- A response curve, not a table: catch rate per hour fished across
+                   the factor's whole range, with today's reading marked on it. The
+                   y-axis is fish/hr, which is what having a denominator buys. -->
+              <div class="app-card">
+                <p class="app-eyebrow">Catch rate &middot; fish per hour fished</p>
+                <svg class="spark" viewBox="0 0 240 74" preserveAspectRatio="none" role="img" aria-label="Catch rate against barometric pressure, peaking near 30.0 inches of mercury">
+                  <defs>
+                    <linearGradient id="curveFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.30"/>
+                      <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 62 L40 55 L80 34 L120 16 L160 30 L200 50 L240 60 L240 74 L0 74 Z" fill="url(#curveFill)"/>
+                  <path d="M0 62 L40 55 L80 34 L120 16 L160 30 L200 50 L240 60" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="120" cy="16" r="4" fill="var(--accent)"/>
+                  <line x1="120" y1="16" x2="120" y2="74" stroke="var(--accent)" stroke-width="1" stroke-dasharray="2 3" opacity="0.55"/>
+                </svg>
+                <div class="spark-axis data"><span>29.4</span><span>29.7</span><span>30.0</span><span>30.3</span><span>30.6</span></div>
+                <p class="yc-src" style="margin-top:0.35rem">Now: 30.12 inHg &middot; 1.8 fish/hr</p>
+              </div>
+
+              <!-- The Insights card: at most three findings, each one already
+                   through the interval, effect-floor and family-wise gates. -->
               <div class="app-card lift-row">
-                <div class="lift-head"><b>Barometric Pressure</b><span class="lift-val data">2.4&times;</span></div>
-                <p class="lift-band data">29.9 – 30.1 inHg</p>
+                <div class="lift-head"><b>Pressure trend</b><span class="lift-val data">1.9&times;</span></div>
+                <p class="lift-band data">Falling &middot; 2.1 vs 1.1 fish/hr</p>
                 <div class="lift-bar"><i style="--w:100%"></i></div>
-                <p class="lift-n data">n = 38</p>
+                <p class="lift-n data">90% interval 1.3 &ndash; 2.8 &middot; 41 trips</p>
               </div>
 
               <div class="app-card lift-row">
-                <div class="lift-head"><b>Water Temp</b><span class="lift-val data">1.9&times;</span></div>
-                <p class="lift-band data">52 – 56 &deg;F</p>
-                <div class="lift-bar"><i style="--w:79%"></i></div>
-                <p class="lift-n data">n = 41</p>
+                <div class="lift-head"><b>Water Temp</b><span class="lift-val data">1.5&times;</span></div>
+                <p class="lift-band data">52 &ndash; 56 &deg;F &middot; 1.7 fish/hr</p>
+                <div class="lift-bar"><i style="--w:70%"></i></div>
+                <p class="lift-n data">90% interval 1.1 &ndash; 2.2 &middot; 36 trips</p>
               </div>
 
-              <div class="app-card lift-row">
-                <div class="lift-head"><b>Cloud Cover</b><span class="lift-val data">1.6&times;</span></div>
-                <p class="lift-band data">60 – 90 %</p>
-                <div class="lift-bar"><i style="--w:66%"></i></div>
-                <p class="lift-n data">n = 33</p>
-              </div>
-
-              <div class="app-card lift-row">
-                <div class="lift-head"><b>Wind Speed</b><span class="lift-val data">1.4&times;</span></div>
-                <p class="lift-band data">4 &ndash; 8 mph</p>
-                <div class="lift-bar"><i style="--w:58%"></i></div>
-                <p class="lift-n data">n = 29</p>
-              </div>
-
+              <!-- What the card looks like most of the time, and deliberately so. -->
               <div class="app-card lift-row muted">
-                <div class="lift-head"><b>Precipitation</b><span class="lift-val data">&mdash;</span></div>
-                <p class="lift-band">Not enough data yet</p>
+                <div class="lift-head"><b>Everything else</b><span class="lift-val data">&mdash;</span></div>
+                <p class="lift-band">No solid pattern yet</p>
                 <div class="lift-bar"><i style="--w:0%"></i></div>
-                <p class="lift-n data">n = 3 · needs 5</p>
+                <p class="lift-n data">Intervals still cross 1.0&times;</p>
               </div>
             </div>
           <nav class="tab-bar" aria-hidden="true">
@@ -752,7 +766,7 @@
             <span class="chain-num data">4</span>
             <div>
               <b>Prime, or not.</b>
-              37 species carry a curated trophy-potential age window. If the
+              39 species carry a curated trophy-potential age window. If the
               fish's age falls inside its species' window, it's flagged
               <span class="prime-inline">PRIME</span>.
             </div>
@@ -889,12 +903,14 @@
 <section class="section" id="insights">
   <div class="wrap">
     <p class="eyebrow">Your statistics</p>
-    <h2 class="section-title">Twenty-one ways to read your own history.</h2>
+    <h2 class="section-title">Thirteen ways to read your own history.</h2>
     <p class="section-lede">
-      The Insights tab isn't one dashboard — it's a library of 21 cards you
+      The Insights tab isn't one dashboard — it's a library of 13 cards you
       arrange to taste, across Charts, Intelligence and Records, with your
       favourites pinned to the Home grid. Every one is computed from your
-      catches alone.
+      catches alone. It used to be 22: cards that answered the same question
+      without a denominator were retired into the ones that answer it with a
+      rate, because two surfaces that can disagree are worse than one that can't.
     </p>
 
     <div class="bento">
@@ -904,16 +920,19 @@
         <div class="tile-icon">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18"/><path d="M7 20V9M12 20V4M17 20v-7"/><path d="M2 4h3M2 8h3"/></svg>
         </div>
-        <h3>Bite Window: the only card that counts the days you caught nothing</h3>
+        <h3>Bite Window: the only card that counts the hours you caught nothing</h3>
         <p style="max-width:78ch">
-          Every other bite predictor looks only at your successes, which quietly
-          guarantees a flattering answer. Neptune's Bite Window compares your
-          <strong>catch trips against your blank trips</strong> and measures the
-          effect size between them, so a skunking is evidence too. It needs at
-          least five trips in a season before it says anything, reports its own
-          confidence as Low, Medium or High by sample size, and when you haven't
-          logged any blank days it falls back to a weaker method and
-          <em>deliberately discounts the result</em> to signal exactly that.
+          Every other bite predictor plots when you caught fish, which mostly
+          reveals when you go fishing. Neptune's Bite Window plots
+          <strong>catch rate per hour fished</strong>, so the blank hours pull the
+          line down exactly as they should. And it doesn't assume the clock is the
+          right axis: you can read the same rate against
+          <strong>the clock, the sun</strong> (offsets from sunrise and sunset,
+          because crepuscular feeding tracks light, not 6&nbsp;AM),
+          <strong>the tide</strong> (offsets from the nearest high or low, offered
+          only where the water actually resolves to a tide station), or
+          <strong>the moon</strong> (solunar major and minor periods). Filter by
+          species, season or water body and the denominator follows.
         </p>
       </div>
 
@@ -921,11 +940,12 @@
         <div class="tile-icon">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
         </div>
-        <h3>Activity heatmap &amp; prime windows</h3>
+        <h3>Conditions Window</h3>
         <p>
-          The hours and days you actually catch fish, as a calendar heatmap plus
-          the contiguous hour-runs where your own catch density beats your
-          average — not a generic dawn-and-dusk assumption.
+          Every condition as a response curve across its whole range, with the
+          current reading marked on it — and the marker refuses to be drawn when
+          today sits outside the range your log actually covers, rather than
+          clamping to the end and implying a prediction it can't make.
         </p>
       </div>
 
@@ -969,11 +989,8 @@
         <div class="tile-icon">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
         </div>
-        <h3>Moon &amp; tide productivity</h3>
-        <p>
-          Illumination, phase, moonrise times, and — on saltwater — which tide
-          stage actually produces for you.
-        </p>
+        <h3>Moon times</h3>
+        <p>Moonrise, moonset, illumination and phase for your next trip.</p>
       </div>
 
       <div class="tile reveal">
@@ -1066,16 +1083,20 @@
         </li>
         <li>
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-          <span><strong>Stocking pipelines live in 9 of 15 states</strong>, drawn from each agency's own feed — ArcGIS services, JSON APIs, even per-county PDFs.</span>
+          <span><strong>Stocking pipelines live in 10 of 15 states</strong>, drawn from each agency's own feed — ArcGIS services, JSON APIs, even per-county PDFs. Where a state publishes a schedule rather than a delivery log, it's stored as a schedule and kept out of "recently stocked" alerts.</span>
+        </li>
+        <li>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><strong>Named-water forage now reaches 12 of 15 states</strong>, sourced from official survey reports rather than estimated. Where only a coarse regional estimate exists, the app badges it as exactly that instead of passing it off as a survey.</span>
         </li>
         <li>
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
-          <span><strong>Newer states carry regional forage estimates</strong>, badged in the app as exactly that. Regulations stay blank rather than approximate — it's the one place a wrong number has legal consequences.</span>
+          <span><strong>Regulations stay in the four deep states only</strong>, and stay blank everywhere else rather than approximate — it's the one place a wrong number has legal consequences.</span>
         </li>
       </ul>
       <dl class="hero-stats" style="margin-top:2rem">
-        <div><dt>Water bodies</dt><dd>58,770</dd></div>
-        <div><dt>Stocking records</dt><dd>~30,500</dd></div>
+        <div><dt>Water bodies</dt><dd>85,644</dd></div>
+        <div><dt>Stocking records</dt><dd>68,830</dd></div>
         <div><dt>Tide stations</dt><dd>1,833</dd></div>
       </dl>
     </div>
@@ -1090,7 +1111,11 @@
       <ul class="feature-list" style="margin-top:1.5rem">
         <li>
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
-          <span>A condition factor under 5 observations makes <strong>no claim at all</strong>.</span>
+          <span>A pattern whose interval still crosses "no effect" makes <strong>no claim at all</strong>, however many catches sit behind it.</span>
+        </li>
+        <li>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+          <span>A stocking record whose state published <strong>no fish count</strong> stays blank — never quietly counted as zero, which would rank a real stocking last.</span>
         </li>
         <li>
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
@@ -1121,21 +1146,29 @@
         Neptune is a private logbook that happens to be good at statistics. Your
         catch history exists to serve your own insights and nothing else.
       </p>
+      <p class="section-lede" style="margin-inline:auto;text-align:center;max-width:52ch">
+        And if you film yourself fishing, <strong>Incognito</strong> hides the
+        water's name, the map and your catch pins behind a mask for the whole
+        trip — a screen recording gives your spot away in about a second
+        otherwise. The trip still logs exactly as it always did; the masking is
+        display-only, and built so it structurally can't reach what gets stored.
+      </p>
       <div class="hero-actions" style="justify-content:center;margin-top:2rem">
         <a class="btn btn-primary" href="https://testflight.apple.com/join/CFZtX8PJ" target="_blank" rel="noopener">
           <!-- Paper plane, echoing TestFlight's own mark. -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M21.5 2.5 2 10.5l7 3 3 7z"/><path d="M21.5 2.5 9 13.5"/></svg>
           Join the beta on TestFlight
         </a>
-        <a class="btn btn-ghost" href="/">Support &amp; FAQ</a>
+        <a class="btn btn-ghost" href="/support/">Support &amp; FAQ</a>
       </div>
       <!-- Says plainly what "beta" means here, so a tester knows what they're
            signing up for rather than expecting a finished product. -->
       <p class="hero-note" style="text-align:center;max-width:48ch;margin-inline:auto">
-        Requires iOS 17 or later and the TestFlight app. Full stocking,
-        regulations and forage data currently covers New York, New Jersey,
-        Pennsylvania and Florida. Expect rough edges &mdash; and tell us about
-        them; there's a Report a Bug button in Settings.
+        Requires iOS 17 or later and the TestFlight app. Reference data covers 15
+        East Coast states at varying depth; full stocking, regulations and forage
+        data currently covers New York, New Jersey, Pennsylvania and Florida.
+        Expect rough edges &mdash; and tell us about them; there's a Report a Bug
+        button in Settings.
       </p>
     </div>
   </div>
