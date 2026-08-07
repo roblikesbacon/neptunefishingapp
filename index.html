@@ -235,9 +235,9 @@
     <p class="eyebrow">The walkthrough</p>
     <h2 class="section-title">One trip, end to end.</h2>
     <p class="section-lede">
-      Neptune's whole argument is that a logbook should get smarter the more you
-      use it. Here's the actual path a single catch takes, from two taps on the
-      riverbank to a statement about a fish's age you couldn't have made yourself.
+      The more you log, the more Neptune can tell you. Here's what happens to a
+      single fish, from the moment you tap it into the app to the point where
+      Neptune can tell you how old it is and which conditions produced it.
     </p>
   </div>
 
@@ -249,10 +249,10 @@
         <h3 class="step-title">Two taps on the water, not twenty.</h3>
         <p class="step-body">
           Start a live trip and Neptune runs a timer, holds your location, and
-          keeps a running tally while you fish. Logging a fish is a species, a
-          length, and you're back to casting. Breaks pause the clock. Everything
-          writes to the device first, so a dead zone on the river never costs you
-          an entry. It syncs when you come back into signal.
+          keeps a running tally while you fish. Log the fish's species and
+          length, and you're back to casting. Taking a break pauses the clock.
+          Everything saves to your phone first, so no signal on the river still
+          means no lost catches. It syncs once you're back in range.
         </p>
         <ul class="feature-list">
           <li>
@@ -343,14 +343,14 @@
         <p class="step-num data">02 <span>Enrich</span></p>
         <h3 class="step-title">Every catch arrives pre-loaded with its weather.</h3>
         <p class="step-body">
-          This is the part nobody wants to do by hand, and it's the part that
-          makes analysis possible later. The moment a catch lands, Neptune
-          attaches the environmental snapshot around it, pulled from public
-          weather, water, and tide services, not typed in by you.
+          Nobody writes down the barometer reading every time they land a fish.
+          So Neptune does it for you. The moment you save a catch, it looks up
+          the weather, water and tide conditions at that spot and time and
+          stores them with the fish.
         </p>
         <p class="step-body">
-          You logged a species and a length. Neptune stored fourteen more
-          dimensions alongside it.
+          You typed in two things. Neptune saved another fourteen next to them,
+          and those are what make everything later possible.
         </p>
         <ul class="feature-list">
           <li>
@@ -469,31 +469,30 @@
         <p class="step-num data">03 <span>Learn</span></p>
         <h3 class="step-title">It works out what actually produces <em>your</em> fish.</h3>
         <p class="step-body">
-          Here's the turn, and the part most fishing apps get quietly wrong.
-          Counting the conditions you <em>caught fish in</em> measures when you
-          went fishing, not when fish were biting. Neptune divides by effort
-          instead: every number is <strong>catches per hour fished</strong>,
-          measured against your own season-adjusted baseline.
+          Most apps look at the conditions you caught fish in and call the
+          common ones your best conditions. The trouble is that this mostly
+          tells you when you go fishing. If you only get out on Saturday
+          mornings, Saturday mornings will always look magic.
         </p>
         <p class="step-body">
-          So a bin on the pressure curve doesn't say "you caught 38 fish here".
-          It says your catch rate in that band beat your own average, by enough,
-          with an interval that doesn't cross "no effect". Blank hours count
-          against it. That's a much harder claim to make, and a much harder one
-          to fool yourself with.
+          Neptune divides by the time you put in instead. Every number is
+          <strong>fish per hour fished</strong>, compared against your own
+          average. The hours you fished and caught nothing count too, and that's
+          what stops your usual Saturday spot from looking better than it really
+          is.
         </p>
         <ul class="feature-list">
           <li>
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18"/><path d="M7 20V9M12 20V4M17 20v-7"/></svg>
-            <span><strong>Eight factors:</strong> barometric pressure <em>and its trend</em>, water temp, air temp, wind speed, cloud cover, precipitation, and moon illumination, each drawn as a response curve across its full range, with the current reading marked on it.</span>
+            <span><strong>Eight factors:</strong> barometric pressure <em>and its trend</em>, water temp, air temp, wind speed, cloud cover, precipitation, and moon illumination. Each one is drawn as a curve so you can see the whole range at a glance, with the current reading marked on it.</span>
           </li>
           <li>
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            <span><strong>It corrects for having looked everywhere.</strong> Search enough variables and something always looks significant. Neptune applies a family-wise correction across every test a card runs, holding the chance of showing you <em>any</em> false finding to 10%, and caps itself at three findings, ranked by the corrected bound rather than the flashiest number.</span>
+            <span><strong>It allows for how much it looked at.</strong> Check enough things and a couple will look meaningful by pure luck. Neptune keeps track of how many it checked and raises the bar accordingly, so the odds of it showing you even one false pattern stay around 1 in 10. It shows three findings at most.</span>
           </li>
           <li>
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
-            <span><strong>An empty card is a real answer.</strong> A finding has to clear an interval that excludes "no effect" <em>and</em> a minimum effect size before it's shown at all. Until then the card says so, rather than promoting the strongest noise it could find.</span>
+            <span><strong>Most of the time it says nothing.</strong> A pattern has to be both clear enough to be real and big enough to be worth acting on. Until one is, the card tells you it hasn't found anything yet, instead of showing you the best-looking noise.</span>
           </li>
         </ul>
       </div>
@@ -588,16 +587,16 @@
         <p class="step-num data">04 <span>Score</span></p>
         <h3 class="step-title">A 0-100 score that shows its work.</h3>
         <p class="step-body">
-          Point those learned weights at a forecast and you get tomorrow's
-          Conditions Score. Each factor is weighted by <em>its own measured lift
-          in your history</em>, then scored on how close the forecast sits to
-          your best band.
+          Now point all of that at tomorrow's forecast. Neptune checks how
+          close each condition is to the range that has actually worked for you,
+          and gives the day a score out of 100. Conditions that matter more in
+          your history count for more.
         </p>
         <p class="step-body">
-          Crucially, the score always comes with its breakdown. You can see that
-          today's 78 is mostly pressure and water temp, and decide for yourself
-          whether you buy it. A black-box number you can't interrogate is just a
-          horoscope.
+          You always get to see the breakdown. If tomorrow scores 78, you can
+          see it's mostly the pressure and water temperature carrying it, and
+          decide for yourself whether you agree. A number you can't check is
+          just a horoscope.
         </p>
         <ul class="feature-list">
           <li>
@@ -722,10 +721,11 @@
     <p class="eyebrow">05 · The part no other logbook does</p>
     <h2 class="section-title">Year Class: how old is that fish, and is it&nbsp;prime?</h2>
     <p class="section-lede">
-      You caught a 19½-inch brown trout. Every other app records a number.
-      Neptune works out that the fish was born in 2020, that it's six years old,
-      that six is squarely inside the trophy window for its species, and that
-      the same stocked cohort went into three other water bodies you can drive to.
+      You caught a 19½-inch brown trout. Most apps write down the length and
+      stop there. Neptune works out that the fish hatched in 2020, so it's six
+      years old, that six is right in the prime years for a brown trout, and
+      that the same batch of fish was stocked into three other waters within
+      driving distance.
     </p>
   </div>
 
@@ -738,26 +738,28 @@
             <span class="chain-num data">1</span>
             <div>
               <b>Length becomes age.</b>
-              A von Bertalanffy growth curve, parameterised per species from
-              published age-and-growth studies, back-solves age from length.
+              Fish of a given species grow at a fairly predictable rate, and
+              biologists have published those growth curves. Neptune runs one
+              backwards: give it a length, it gives you an age.
             </div>
           </li>
           <li>
             <span class="chain-num data">2</span>
             <div>
-              <b>Age becomes a year class.</b>
-              Catch year minus age gives the fish's birth year, its cohort.
+              <b>Age becomes a hatch year.</b>
+              Take the year you caught it, subtract the age, and you have the
+              year that fish was born.
             </div>
           </li>
           <li>
             <span class="chain-num data">3</span>
             <div>
-              <b>The cohort gets matched.</b>
-              State stocking records carry a survey year and an age class;
-              subtract them and you know when each stocked batch was born.
-              Neptune matches your fish's year class against every record
-              within a one-year tolerance, <em>across water bodies</em>, not
-              just the one you were standing in.
+              <b>That year gets matched to stocking records.</b>
+              State records say when a batch of fish was stocked and how old
+              they were, so the same subtraction gives each batch a birth year
+              too. Neptune looks for batches born within a year of your fish,
+              and it searches <em>every water in the state</em>, not just the
+              one you were standing in.
             </div>
           </li>
           <li>
@@ -774,15 +776,15 @@
         <div class="note-card">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
           <div>
-            <b>Sourced, or absent, never invented.</b>
-            Most windows come from state and federal fisheries agency data
-            (Walleye 8-15 from documented trophy ages; Muskellunge 8-15, where
-            the average angler-caught fish is 11 years and 45 inches). Where no
-            citable trophy age exists, the window is derived transparently from
-            the species' own growth curve and labelled as such. A species with
-            no curated window simply gets <em>no badge</em>, and true forage
-            species like Golden Shiner are excluded on purpose, because nobody
-            is chasing a trophy one.
+            <b>Looked up, or left blank. Never invented.</b>
+            Most of these age ranges come straight from state and federal
+            fisheries research (walleye 8-15 years, muskellunge 8-15, where the
+            average one an angler catches is 11 years old and 45 inches). When
+            no published trophy age exists for a species, Neptune works the
+            range out from that species' growth curve and tells you that's what
+            it did. If there's no range for a species, you get no badge at all
+            rather than a guess. Bait species like Golden Shiner are left out on
+            purpose, since nobody is out chasing a trophy shiner.
           </div>
         </div>
       </div>
@@ -903,12 +905,12 @@
     <p class="eyebrow">Your statistics</p>
     <h2 class="section-title">Thirteen ways to read your own history.</h2>
     <p class="section-lede">
-      The Insights tab isn't one dashboard. It's a library of 13 cards you
-      arrange to taste, across Charts, Intelligence and Records, with your
-      favourites pinned to the Home grid. Every one is computed from your
-      catches alone. It used to be 22: cards that answered the same question
-      without a denominator were retired into the ones that answer it with a
-      rate, because two surfaces that can disagree are worse than one that can't.
+      Insights isn't one fixed dashboard. It's 13 cards you can reorder to suit
+      you, split into Charts, Intelligence and Records, with your favourites
+      pinned to the home screen. All of them are built from your catches and
+      nobody else's. There used to be 22, but several were answering the same
+      question in slightly different ways and sometimes contradicting each
+      other, so we kept the ones that answer it best.
     </p>
 
     <div class="bento">
@@ -920,17 +922,18 @@
         </div>
         <h3>Bite Window: the only card that counts the hours you caught nothing</h3>
         <p style="max-width:78ch">
-          Every other bite predictor plots when you caught fish, which mostly
-          reveals when you go fishing. Neptune's Bite Window plots
-          <strong>catch rate per hour fished</strong>, so the blank hours pull the
-          line down exactly as they should. And it doesn't assume the clock is the
-          right axis: you can read the same rate against
-          <strong>the clock, the sun</strong> (offsets from sunrise and sunset,
-          because crepuscular feeding tracks light, not 6&nbsp;AM),
-          <strong>the tide</strong> (offsets from the nearest high or low, offered
-          only where the water actually resolves to a tide station), or
-          <strong>the moon</strong> (solunar major and minor periods). Filter by
-          species, season or water body and the denominator follows.
+          Other bite charts plot when you caught fish, which mostly shows when
+          you go fishing. Bite Window plots
+          <strong>fish per hour fished</strong>, so the hours you blanked pull
+          the line down like they should. It also doesn't assume the clock is
+          the right way to look at it. You can chart the same rate against
+          <strong>the clock, the sun</strong> (hours before and after sunrise or
+          sunset, since fish feed to the light rather than to 6&nbsp;AM),
+          <strong>the tide</strong> (hours either side of the nearest high or
+          low, shown only where there's a real tide station nearby), or
+          <strong>the moon</strong> (the solunar major and minor periods).
+          Narrow it to one species, season or water and the rate is recalculated
+          for just those trips.
         </p>
       </div>
 
@@ -1067,10 +1070,10 @@
       <p class="eyebrow">Where it works</p>
       <h2 class="section-title" style="font-size:var(--text-xl)">Four states deep, fifteen states wide.</h2>
       <p class="section-lede" style="font-size:var(--text-base)">
-        Logging, conditions and your own statistics work anywhere: they only
-        need your catches and public weather data. The <em>reference</em> layers
-        are being built state by state, and it's worth being precise about which
-        is which rather than colouring in a map:
+        Logging, conditions and your own stats work anywhere in the world, because
+        all they need is your catches and public weather data. The state-specific
+        data (stocking, regulations, forage) is a different story, and it's being
+        built one state at a time. Here's exactly where each piece stands:
       </p>
       <ul class="feature-list" style="margin-top:1.5rem">
         <li>
@@ -1101,21 +1104,22 @@
       <p class="eyebrow">Where it stops</p>
       <h2 class="section-title" style="font-size:var(--text-xl)">An engine that says "I don't know".</h2>
       <p class="section-lede" style="font-size:var(--text-base)">
-        Every inference in Neptune is gated. It is a deliberate design rule that
-        the app degrades to silence rather than to a plausible-sounding guess.
+        Neptune would rather tell you nothing than tell you something that
+        sounds right and isn't. That's a deliberate choice, and it shows up all
+        over the app:
       </p>
       <ul class="feature-list" style="margin-top:1.5rem">
         <li>
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
-          <span>A pattern whose interval still crosses "no effect" makes <strong>no claim at all</strong>, however many catches sit behind it.</span>
+          <span>A pattern that could still be down to chance makes <strong>no claim at all</strong>, no matter how many catches are behind it.</span>
         </li>
         <li>
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
-          <span>A stocking record whose state published <strong>no fish count</strong> stays blank, never quietly counted as zero, which would rank a real stocking last.</span>
+          <span>When a state doesn't publish how many fish it stocked, that stays blank. It's never counted as zero, which would push a real stocking to the bottom of the list.</span>
         </li>
         <li>
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
-          <span>A stocking record with no age class is <strong>never</strong> forced into a cohort.</span>
+          <span>A stocking record that doesn't say how old the fish were is <strong>never</strong> matched to a year class.</span>
         </li>
         <li>
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
