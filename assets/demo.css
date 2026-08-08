@@ -207,6 +207,24 @@ a:hover { text-decoration: underline; }
 }
 @media (max-width: 860px) { .nav { display: none; } }
 
+/* Sticky-header install CTA. Deliberately a SIBLING of .nav, not a child:
+   .nav is display:none below 860px, and Neptune is an iPhone app, so the one
+   link that matters most must survive on the narrow screens where people are
+   most likely to install it. On desktop .nav's margin-left:auto already
+   pushes this group right; below 860px .nav vanishes, so the CTA takes over
+   that job itself. */
+.btn-sm {
+  min-height: 40px;
+  padding: 0.5rem 1.1rem;
+  font-size: var(--text-sm);
+}
+.header-cta { flex-shrink: 0; }
+@media (max-width: 860px) { .header-cta { margin-left: auto; } }
+@media (max-width: 400px) {
+  .header-cta { padding: 0.5rem 0.85rem; }
+  .header-cta .cta-long { display: none; }
+}
+
 /* ------------------------------------------------------------- utilities -- */
 
 .eyebrow {
